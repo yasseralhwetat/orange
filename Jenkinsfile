@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from GitHub
-                git credentialsId: '27457916-0152-403d-aa24-71ad8d3b894b', url: 'https://github.com/yasseralhwetat/orange.git'
-
+	     git branch: 'main', credentialsId: '27457916-0152-403d-aa24-71ad8d3b894b', url: 'https://github.com/yasseralhwetat/orange.git'
             }
         }
 
