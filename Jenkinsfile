@@ -1,36 +1,21 @@
 pipeline {
-environment {
-registry = "hub.docker.com/yasseralhwetat"
-registryCredential = 'ed22d543-8498-4f04-9fad-3b211f57f8a0'
-dockerImage = ''
-}
-agent any
-stages {
-stage('Cloning our Git') {
-steps {
-git 'https://github.com/yasseralhwetat/orange.git'
-}
-}
-stage('Building our image') {
-steps{
-script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
-}
-}
-}
-stage('Deploy our image') {
-steps{
-script {
-docker.withRegistry( '', registryCredential ) {
-dockerImage.push()
-}
-}
-}
-}
-stage('Cleaning up') {
-steps{
-sh "docker rmi $registry:$BUILD_NUMBER"
-}
-}
-}
+    agent any
+
+    stages {
+        stage('Omar') {
+            steps {
+             git branch: 'main', credentialsId: '27457916-0152-403d-aa24-71ad8d3b894b', url: 'https://github.com/yasseralhwetat/orange.git'
+            }
+        }
+        stage('Khalil') {
+            steps {
+             sh 'docker build -t image-from-jenkins:v1 . '
+            }
+        }
+        stage('Suleiman') {
+            steps {
+            sh  'echo done image creation'
+            }
+        }
+    }
 }
