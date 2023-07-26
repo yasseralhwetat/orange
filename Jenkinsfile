@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Omar') {
             steps {
-                echo 'Building..'
+                echo 'today is $(date)'
             }
         }
-        stage('Test') {
+        stage('Khalil') {
             steps {
-                echo 'Testing..'
+                echo 'Hello $USER'
             }
         }
-        stage('Deploy') {
+        stage('Suleiman') {
             steps {
-                echo 'Deploying....'
+                echo 'Done Deploying Orange Jenkins'
             }
         }
     }
