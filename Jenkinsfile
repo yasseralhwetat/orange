@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-	     git branch: 'main', credentialsId: '27457916-0152-403d-aa24-71ad8d3b894b', url: 'https://github.com/yasseralhwetat/orange.git'
+             git branch: 'main', credentialsId: '27457916-0152-403d-aa24-71ad8d3b894b', url: 'https://github.com/yasseralhwetat/orange.git'
             }
         }
 
@@ -30,6 +30,15 @@ pipeline {
                 }
             }
         }
-    }
-}
 
+        stage('Build to kubernetes') {
+            steps {
+
+            sh  'kubectl apply -f deployment.yaml --kubeconfig kubeconfig'
+                    }
+
+                }
+            }
+
+
+  }
