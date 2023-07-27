@@ -2,19 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: python
+    app: yasser
   name: python
-  namespace: dev
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: python
+      app: yasser
   template:
     metadata:
       labels:
-        app: python
+        app: yasser
     spec:
       containers:
-      - image: httpd
+      - image: yasseralhwetat/orange-httpd:omar
         name: python
