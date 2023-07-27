@@ -34,7 +34,7 @@ pipeline {
         stage('Build to kubernetes') {
             steps {
 
-            sh  'kubectl apply -f deployment.yaml --kubeconfig kubeconfig'
+            sh  'kubectl apply -f .  --kubeconfig kubeconfig'
                     }
 
                 }
