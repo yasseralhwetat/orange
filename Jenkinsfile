@@ -8,21 +8,21 @@ pipeline {
             }
         }
 
+
         stage('Build Docker Image') {
             steps {
-                // Build the Docker image using the Dockerfile in the repository
                 script {
-                    def customImageTag = "yasseralhwetat/orange-httpd:v1"
+                    def customImageTag = "yasseralhwetat/orange-httpd:omar"
                     docker.build(customImageTag, '.')
                 }
             }
         }
 
+
         stage('Push Docker Image') {
             steps {
-                // Push the Docker image to Docker Hub registry
                 script {
-                    def customImageTag = "yasseralhwetat/orange-httpd:v1"
+                    def customImageTag = "yasseralhwetat/orange-httpd:omar"
                      withDockerRegistry(credentialsId: 'ed22d543-8498-4f04-9fad-3b211f57f8a0') {
 
                         docker.image(customImageTag).push()
